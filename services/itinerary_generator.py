@@ -42,7 +42,7 @@ async def generate_itinerary(trip: TripRequest) -> ItineraryResponse:
                   "time": "09:00",
                   "title": "Name of the Place",
                   "description": "Brief description of activity. (Transport: 10 mins by Metro)",
-                  "location": "Name of Place, City"
+                  "location": "Google Map Address"
                 }}
            ]
          }}

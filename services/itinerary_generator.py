@@ -14,10 +14,15 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 async def generate_itinerary(trip: TripRequest) -> ItineraryResponse:
 
     prompt = f"""
-    You are an expert travel planning AI. Generate a strict JSON itinerary.
-    
-    # ... (前面的 City, Start, End 等保持不變) ...
+    You are an expert travel planning AI. Your task is to generate a strict JSON itinerary based on the user's request.
 
+    User Request:
+    - City: {trip.city}
+    - Start Date: {trip.startDate}
+    - End Date: {trip.endDate}
+    - Budget: {trip.budgetLevel}
+    - Preferences: {trip.preferences}
+    
     Rules:
     1. **High Quality Only**: Recommend ONLY places that are highly rated (4.0+ stars on Google Maps). Avoid obscure or low-rated locations.
     2. **Real Names**: In the 'location' field, provide the **specific Google Maps POI Name** (e.g., "Senso-ji", "Tokyo Tower"), NOT just the street address.

@@ -7,6 +7,10 @@ app = FastAPI(
     version="1.0.0"
 )
 
+@app.get("/")
+def home():
+    return {"status": "alive", "message": "AI Service is running!"}
+
 @app.post("/generate", response_model=ItineraryResponse)
 async def generate(trip: TripRequest):
     itinerary = await generate_itinerary(trip)

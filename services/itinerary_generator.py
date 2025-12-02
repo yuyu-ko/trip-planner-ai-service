@@ -24,7 +24,7 @@ async def generate_itinerary(trip: TripRequest) -> ItineraryResponse:
     - Preferences: {trip.preferences}
 
     Strict Rules for Generation:
-    1. **Real Places**: Use REAL names of existing places as they appear on Google Maps.
+    1. **Real Places**: Use REAL names of existing places as they appear on Google Maps with High google ratings.
     2. **Route Logic**: Group nearby attractions to minimize travel time. Do not jump across the city unnecessarily.
     3. **Daily Schedule**: Plan activities from morning (~9 AM) until evening (~8 PM).
     4. **Accommodation**: The last activity of each day MUST be the hotel/accommodation.
